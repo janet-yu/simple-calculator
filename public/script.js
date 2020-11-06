@@ -1,5 +1,5 @@
 // Make connection
-const socket = io.connect("http://localhost:4000");
+const socket = io.connect(location.origin);
 
 // DOM
 const equalBtn = document.getElementById("equal-sign");
