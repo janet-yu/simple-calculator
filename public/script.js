@@ -4,7 +4,6 @@ const socket = io.connect(location.origin);
 // DOM
 const equalBtn = document.getElementById("equal-sign");
 const calcInput = document.getElementById("calc-input");
-const calcsContainter = document.getElementById("calcs-container");
 const calcsList = document.getElementById("calcs-list");
 const operatorBtns = document.querySelectorAll(".calculator__operator");
 const calcBtns = document.querySelectorAll(".calculator__btn");
@@ -34,21 +33,6 @@ const resetState = function () {
 
 // Emit events
 socket.emit("connected");
-
-// equalBtn.addEventListener("click", function () {
-//   try {
-//     expression += `(${input})`;
-//     const result = evalParse(expression);
-
-//     calcInput.innerText = result;
-//     socket.emit("calculation", {
-//       calculation: expression.replace(/\*/g, "x") + " = " + result,
-//     });
-//   } catch (e) {
-//     calcInput.innerText = "ERR";
-//   }
-//   resetState();
-// });
 
 const evaluateExpr = (expr) => {
   try {
