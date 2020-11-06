@@ -1,0 +1,26 @@
+{
+  "name": "simple-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janet-yu/simple-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janet-yu/simple-calculator/issues"
+  },
+  "homepage": "https://github.com/janet-yu/simple-calculator#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

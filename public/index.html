@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculater</title>
+  </head>
+  <body>
+    <h1>Calculate Away!</h1>
+    <main>
+      <div class="calculator">
+        <div class="calculator__input" id="calc-input">0</div>
+        <table>
+          <tr>
+            <td><input type="button" id="calc-clear" value="CE" /></td>
+            <td>
+              <input type="button" class="calculator__btn" value="+/-" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="%" />
+            </td>
+            <td>
+              <input
+                type="button"
+                class="calculator__operator calculator__btn"
+                value="/"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="button" class="calculator__btn" value="7" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="8" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="9" />
+            </td>
+            <td>
+              <input
+                type="button"
+                class="calculator__operator calculator__btn"
+                value="*"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="button" class="calculator__btn" value="4" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="5" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="6" />
+            </td>
+            <td>
+              <input
+                type="button"
+                class="calculator__operator calculator__btn"
+                value="-"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="button" class="calculator__btn" value="1" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="2" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="3" />
+            </td>
+            <td>
+              <input
+                type="button"
+                class="calculator__operator calculator__btn"
+                value="+"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="button" class="calculator__btn" value="0" />
+            </td>
+            <td>
+              <input type="button" class="calculator__btn" value="." />
+            </td>
+            <td>
+              <input
+                type="button"
+                class="calculator__operator calculator__btn"
+                id="equal-sign"
+                value="="
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="calculations-container" id="calcs-container">
+        <h2>Calculations Made</h2>
+        <ol id="calcs-list"></ol>
+      </div>
+    </main>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"
+    ></script>
+    <script defer src="script.js"></script>
+  </body>
+</html>
