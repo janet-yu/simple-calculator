@@ -13,11 +13,8 @@ const clearBtn = document.getElementById("calc-clear");
 let expression = ""; // the end value to evaluate
 let input = ""; // the current input in the calculator
 
-const evalParse = function (expr) {
-  return Function('"use strict"; return (' + expr + ")")();
-};
-
 const clearActive = function () {
+  // Clear any active operator styling
   for (let i = 0; i < operatorBtns.length; i++) {
     if (operatorBtns[i].classList.contains("active")) {
       operatorBtns[i].classList.remove("active");
@@ -26,6 +23,7 @@ const clearActive = function () {
 };
 
 const resetState = function () {
+  // Reset the calculator state completely
   clearActive();
   expression = "";
   input = "";
@@ -36,7 +34,7 @@ socket.emit("connected");
 
 const evaluateExpr = (expr) => {
   try {
-    const result = evalParse(expr);
+    const result = eval(expr);
 
     calcInput.innerText = result;
     socket.emit("calculation", {
@@ -61,11 +59,13 @@ for (let i = 0; i < calcBtns.length; i++) {
           input = (parseInt(input) / 100).toString();
           break;
         default:
-          input += calcBtns[i].value;
+          if (input !== "0") {
+            input += calcBtns[i].value;
+          }
       }
       calcInput.innerText = input;
     } else {
-      // If the button is an operator
+      // If the button is an operator, check if it's evaluation
       if (calcBtns[i].value === "=") {
         evaluateExpr(`${expression}(${input})`);
       } else {
