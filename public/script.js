@@ -97,7 +97,6 @@ socket.on("calculation", (data) => {
 });
 
 socket.on("connected", (data) => {
-  console.log(data);
   let list = "";
   data.forEach((el) => {
     list += "<li>" + el.calculation + "</li>";
