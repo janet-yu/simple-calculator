@@ -33,7 +33,6 @@ socket.emit("connected");
 const evaluateExpr = (expr) => {
   try {
     const result = eval(expr);
-
     calcInput.innerText = result;
     socket.emit("calculation", {
       calculation: expr.replace(/\*/g, "x") + " = " + result,
@@ -51,10 +50,10 @@ for (let i = 0; i < calcBtns.length; i++) {
       // If the button is not an operator (-, +, *, /, or =)
       switch (calcBtns[i].value) {
         case "+/-":
-          input = (-parseInt(input)).toString();
+          input = (-parseFloat(input)).toString();
           break;
         case "%":
-          input = (parseInt(input) / 100).toString();
+          input = (parseFloat(input) / 100).toString();
           break;
         default:
           if (input !== "" && input !== "0") {
@@ -69,10 +68,12 @@ for (let i = 0; i < calcBtns.length; i++) {
       if (calcBtns[i].value === "=") {
         evaluateExpr(`${expression}(${input})`);
       } else {
-        clearActive();
-        calcBtns[i].classList.add("active");
-        expression += `(${input})${calcBtns[i].value}`;
-        input = "";
+        if (!calcBtns[i].classList.contains("active")) {
+          clearActive();
+          calcBtns[i].classList.add("active");
+          expression += `(${input})${calcBtns[i].value}`;
+          input = "";
+        }
       }
     }
   });
