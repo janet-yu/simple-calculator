@@ -14,7 +14,6 @@ let expression = ""; // the end value to evaluate
 let input = ""; // the current input in the calculator
 
 const clearActive = function () {
-  // Clear any active operator styling
   for (let i = 0; i < operatorBtns.length; i++) {
     if (operatorBtns[i].classList.contains("active")) {
       operatorBtns[i].classList.remove("active");
@@ -23,7 +22,6 @@ const clearActive = function () {
 };
 
 const resetState = function () {
-  // Reset the calculator state completely
   clearActive();
   expression = "";
   input = "";
@@ -59,8 +57,10 @@ for (let i = 0; i < calcBtns.length; i++) {
           input = (parseInt(input) / 100).toString();
           break;
         default:
-          if (input !== "0") {
+          if (input !== "" && input !== "0") {
             input += calcBtns[i].value;
+          } else {
+            input = calcBtns[i].value;
           }
       }
       calcInput.innerText = input;
