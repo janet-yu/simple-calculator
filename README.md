@@ -19,3 +19,14 @@ This is a simple collaborative calculator that logs the calculations of users co
 - HTML/CSS/JavaScript
 - Express
 - Socket.io
+
+## How to Run Locally
+1. Install dependencies
+```
+npm i // or npm install
+```
+2. Run the development environment (hosted on http://localhost:4000)
+```
+npm run dev
+```
+3. Open the app on http://localhost:4000 and start calculating!
