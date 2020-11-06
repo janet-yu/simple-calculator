@@ -1,10 +1,11 @@
 const express = require("express");
 const socket = require("socket.io");
+const PORT = process.env.PORT || 4000;
 
 // App setup
 const app = express();
-const server = app.listen(4000, () => {
-  console.log("listening for requests on 4000");
+const server = app.listen(PORT, () => {
+  console.log("listening for requests on port: ", PORT);
 });
 
 // save calculations so that all clients will have the latest calcs
@@ -13,7 +14,7 @@ let calculations = [];
 // Static files
 app.use(express.static("public"));
 
-// Socket working on the server running on PORT 4000
+// Socket working on the server
 const io = socket(server);
 
 io.on("connection", (socket) => {
